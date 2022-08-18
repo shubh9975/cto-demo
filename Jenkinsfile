@@ -50,6 +50,9 @@ pipeline{
        sh '''
            echo "Sonar scanning"
       '''
-
+} 
+}
+}
+    
 }
 }
