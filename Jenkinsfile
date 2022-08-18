@@ -85,6 +85,16 @@ pipeline{
 }
 }
 }    
+
+stage("Delete Image From Local"){
+     steps{
+      script{
+       sh '''
+           docker rmi -f cto
+       '''
+}
+}
+}    
     
 }
 }
