@@ -42,8 +42,14 @@ pipeline{
 }
 }
 }
- 
-  
+     
+   stage("'Sonar Scan placeholder'"){
+     steps{
+      script{
+
+       sh '''
+           echo "Sonar scanning"
+      '''
 
 }
 }
