@@ -65,5 +65,15 @@ pipeline{
 }
 }    
     
+   stage("Image scanning"){
+     steps{
+      script{
+       sh '''
+           echo "Sonar scanning"
+       '''
+}
+}
+}
+    
 }
 }
