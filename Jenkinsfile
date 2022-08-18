@@ -33,15 +33,11 @@ pipeline{
     //fmt and lint
      steps{
       script{
-       bitbucketStatusNotify(buildState: 'FAILED', credentialsId: 'mykey')
 
        sh '''
-            go version
-            gofmt -w hello.go 
-            go vet hello.go 
+           echo "Formatting the Java Code"
+           echo "Linting the Java Code"
       '''
-
-        bitbucketStatusNotify(buildState: 'SUCCESSFUL', credentialsId: 'mykey')
 
 }
 }
@@ -49,26 +45,27 @@ pipeline{
   stage("Image Building"){
      steps{
       script{
-       bitbucketStatusNotify(buildState: 'FAILED', credentialsId: 'mykey')
        sh '''
-           docker build -t bfctech:v1 .
+           docker build -t cto .
            docker tag bfctech:v1 artifactory.bfctech.io:8087/adapt:v1
+           docker tag  cto shubh9975/simple-app:v3.3.3
        '''
-
-         bitbucketStatusNotify(buildState: 'SUCCESSFUL', credentialsId: 'mykey')
 }
 }
 }
   stage("Image scanning"){
      steps{
       script{
-       bitbucketStatusNotify(buildState: 'FAILED', credentialsId: 'mykey')
        sh '''
             trivy image artifactory.bfctech.io:8087/adapt:v1
-            docker push artifactory.bfctech.io:8087/adapt:v1
        '''
-
-         bitbucketStatusNotify(buildState: 'SUCCESSFUL', credentialsId: 'mykey')
+        
+   stage("Image Push"){
+     steps{
+      script{
+       sh '''
+            docker push shubh9975/simple-app:v3.3.3
+       '''      
 }
 }
 }
