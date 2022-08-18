@@ -68,7 +68,7 @@ pipeline{
      steps{
       script{
        sh '''
-            trivy image artifactory.bfctech.io:8087/adapt:v1
+            echo "Image Scanning"
        '''
         
    stage("Docker Login & Image Push"){
