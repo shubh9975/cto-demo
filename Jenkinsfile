@@ -42,7 +42,17 @@ pipeline{
 }
 }
 }
-     
+
+  stage("Code Compile"){
+     steps{
+      script{
+       sh '''
+           mvn clean package
+       '''
+}
+}
+}    
+    
    stage("Sonar Scan placeholder"){
      steps{
       script{
