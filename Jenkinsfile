@@ -35,7 +35,7 @@ pipeline{
       script{
 
        sh '''
-           echo "Formatting the Java Code"
+           echo "Formatting the Java Code JSon Lint"
            echo "Linting the Java Code"
       '''
 
