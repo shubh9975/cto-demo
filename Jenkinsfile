@@ -54,30 +54,13 @@ pipeline{
 }
 }
 
- stage("Image Building"){
+   stage("Image Building"){
      steps{
       script{
        sh '''
            docker build -t cto .
            docker tag  cto shubh9975/simple-app:v3.3.3
        '''
-}
-}
-}
-  stage("Image scanning"){
-     steps{
-      script{
-       sh '''
-            echo "Image Scanning"
-       '''
-        
-   stage("Docker Login & Image Push"){
-     steps{
-      script{
-       sh '''
-            docker login --username shubh9975 --password c65b19fc-7e5c-4553-bf79-1e878a505365
-            docker push shubh9975/simple-app:v3.3.3
-       '''      
 }
 }
 }    
