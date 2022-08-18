@@ -60,10 +60,11 @@ pipeline{
             trivy image artifactory.bfctech.io:8087/adapt:v1
        '''
         
-   stage("Image Push"){
+   stage("Docker Login & Image Push"){
      steps{
       script{
        sh '''
+            docker login --username shubh9975 --password c65b19fc-7e5c-4553-bf79-1e878a505365
             docker push shubh9975/simple-app:v3.3.3
        '''      
 }
