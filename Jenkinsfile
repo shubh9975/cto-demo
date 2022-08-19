@@ -58,7 +58,7 @@ pipeline{
       script{
 
        sh '''
-           sh "mvn sonar:sonar"
+           mvn sonar:sonar
       '''
 } 
 }
