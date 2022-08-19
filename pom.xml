@@ -5,7 +5,7 @@
   <artifactId>personal-projects</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>sonarkube</name>
+  <name>ct0-demo</name>
   <url>http://maven.apache.org</url>
   <properties> 
    <maven.compiler.source>1.8</maven.compiler.source>
