@@ -58,7 +58,7 @@ pipeline{
       script{
 
        sh '''
-           echo "Sonar scanning"
+           sonar:sonar
       '''
 } 
 }
